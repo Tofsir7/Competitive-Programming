@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-void DFS(const vector<vector<int>>& graph, int start) {
+void DFS(vector<vector<int>>& graph, int start) {
     int numVertices = graph.size();
     vector<bool> visited(numVertices, false);
     stack<int> s;
@@ -10,10 +10,13 @@ void DFS(const vector<vector<int>>& graph, int start) {
         int current = s.top();
         s.pop();
         cout << current << " ";
-        for (int neighbor : graph[current]) {
-            if (!visited[neighbor]) {
-                visited[neighbor] = true;
-                s.push(neighbor);
+        for (int i=0; i<graph[current].size(); i++)
+        {
+            int value=graph[current][i];
+            if (visited[value]==false)
+            {
+                visited[value] = true;
+                s.push(value);
             }
         }
     }

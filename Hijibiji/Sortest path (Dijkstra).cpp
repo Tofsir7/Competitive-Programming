@@ -6,8 +6,8 @@ int MinDistance(vector<int>& distances,vector<bool>& visited, int numVertices) {
     int minVertex = -1;
     for (int v = 0; v < numVertices; v++) {
         if (visited[v]==false && distances[v] < minDist) {
-            minDist = distances[v];//2
-            minVertex = v;// 1
+            minDist = distances[v];//6
+            minVertex = v;// 3
         }
     }
     return minVertex;
@@ -16,8 +16,8 @@ void dijkstraShortestPath( vector<vector<int>>& graph, int source, int numVertic
     vector<int> distances(numVertices, INT_MAX);  // sobgula index e maximum value diye innitialise kore rakhi
     vector<bool> visited(numVertices, false);     // Sobgula first e unvisited mark kore rakhi
     distances[source] = 0;
-    for (int count = 0; count < numVertices - 1; count++) {
-        int u = MinDistance(distances, visited, numVertices); //u==1;
+    for (int count = 0; count < numVertices - 1; count++//5) {
+        int u = MinDistance(distances, visited, numVertices); //u==3;
         visited[u] = true;
 
         for (int v = 0; v < numVertices; v++) {

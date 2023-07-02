@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 //Tader finnishing time onujayee sort korar function
-bool compareJobs(const pair<int, int>& a, const pair<int, int>& b) {
+bool compareJobs(pair<int, int> a, pair<int, int> b) {
     return a.second < b.second;
 }
-vector<pair<int, int>> scheduleJobs(vector<pair<int, int>>& jobs)
+vector<pair<int, int>> scheduleJobs(vector<pair<int, int>> jobs)
 {
     //vector of pair k criteria onujayee sort kore nei
     sort(jobs.begin(), jobs.end(), compareJobs);
@@ -25,7 +25,7 @@ int main()
     vector<pair<int, int>> jobs = {{1, 4}, {2, 3}, {3, 5}, {4, 7}, {5, 9}};
     vector<pair<int, int>> schedule = scheduleJobs(jobs);
     cout << "Scheduled Jobs:\n";
-    for (const auto& job : schedule)
+    for (auto& job : schedule)
     {
         cout << "Start time: " << job.first << ", Finish time: " << job.second << "\n";
     }

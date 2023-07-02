@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int longestCommonSubsequence(string& str1, string& str2)
+int longestCommonSubsequence(string str1, string str2)
 {
     int m = str1.length();
     int n = str2.length();
@@ -25,6 +25,7 @@ int main()
 {
     string str1 = "ABCD";
     string str2 = "ACDF";
+   // cin>>str1>>str2;
     int lcsLength = longestCommonSubsequence(str1, str2);
     cout << "Length of Longest Common Subsequence: " << lcsLength << endl;
     return 0;
