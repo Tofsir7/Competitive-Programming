@@ -7,7 +7,7 @@ double knapsackGreedy(vector<int>& weights, vector<int>& values, int capacity)
     //per unit value store kori
     for (int i = 0; i < n; i++)
     {
-        valuePerWeight[i] = static_cast<double>(values[i]) / weights[i];
+        valuePerWeight[i] =(double)(values[i]) / weights[i];
     }
     //per unit value onujayee sort kori
     sort(valuePerWeight.begin(), valuePerWeight.end(), greater<double>());
