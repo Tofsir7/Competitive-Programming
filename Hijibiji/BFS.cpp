@@ -2,19 +2,19 @@
 using namespace std;
 void BFS(vector<vector<int>>graph, int start)
 {
-    int numVertices = graph.size();//10
+    int numVertices = graph.size();
     vector<bool> visited(numVertices, false);
     queue<int> q;
     visited[start] = true;
     q.push(start);
     while (q.empty()==false)
     {
-        int current = q.front();//4
+        int current = q.front();
         q.pop();
         cout << current << " ";
         for (int i=0; i<graph[current].size(); i++)
         {
-            int value=graph[current][i];//3
+            int value=graph[current][i];
             if (visited[value]==false)
             {
                 visited[value] = true;
@@ -25,14 +25,18 @@ void BFS(vector<vector<int>>graph, int start)
 }
 int main()
 {
-    vector<vector<int>> graph =
+    int n,e;
+    cout<<"Enter the number of nodes and edges: ";
+    cin>>n>>e;
+    vector<vector<int>> graph(n);
+    for(int i=0;i<e;i++)
+
     {
-        {4, 2}, //graph[0][0],graph[0][1]
-        {2, 3},//graph[1][0]
-        {0, 1, 3, 4},//graph[2][0]
-        {1, 2, 4},
-        {0,2, 3}
-    };
+        int u,v;
+        cin>>u>>v;
+        graph[u].push_back(v);
+        graph[v].push_back(u);
+    }
 
     int startVertex = 0;
 
