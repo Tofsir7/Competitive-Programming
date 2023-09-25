@@ -1,47 +1,53 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <queue>
+
 using namespace std;
-void BFS(vector<vector<int>>graph, int start)
+
+int adj[130][130],vis[130];
+
+int bfs(int sc,int ed)
 {
-    int numVertices = graph.size();
-    vector<bool> visited(numVertices, false);
     queue<int> q;
-    visited[start] = true;
-    q.push(start);
-    while (q.empty()==false)
-    {
-        int current = q.front();
+
+    vis[sc] = 1;
+    q.push(sc);
+
+
+    while(!q.empty()){
+        int u = q.front();
+
+        if(u == ed) return true;
         q.pop();
-        cout << current << " ";
-        for (int i=0; i<graph[current].size(); i++)
-        {
-            int value=graph[current][i];
-            if (visited[value]==false)
-            {
-                visited[value] = true;
-                q.push(value);
+
+        for(int i = 'A'; i <= 'Z'; i++){
+            if(adj[u][i] == 1 && vis[i] == 0){
+                vis[i] = 1;
+                q.push(i);
             }
         }
     }
+
+    return false;
+
 }
 int main()
 {
-    int n,e;
-    cout<<"Enter the number of nodes and edges: ";
-    cin>>n>>e;
-    vector<vector<int>> graph(n);
-    for(int i=0;i<e;i++)
-
-    {
-        int u,v;
-        cin>>u>>v;
-        graph[u].push_back(v);
-        graph[v].push_back(u);
+    char ed,u,v;
+    int node,edge;
+    cout << "Enter the number of node and edge: ";
+    cin >> node >> edge;
+    for(int i = 1; i <= edge; i++){
+         cin >> u >> v;
+         adj[u][v] = 1;
+         adj[v][u] = 1;
     }
 
-    int startVertex = 0;
+    cout << "Enter Node to find: ";
+    cin >> ed;
 
-    cout << "BFS Traversal: ";
-    BFS(graph, startVertex);
+    int d = bfs(u,ed);
 
+    if(d == 0) cout << "Not Found" <<endl;
+    else cout << "Found" << endl;
     return 0;
 }

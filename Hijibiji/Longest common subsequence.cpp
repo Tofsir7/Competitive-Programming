@@ -23,8 +23,8 @@ int longestCommonSubsequence(string str1, string str2)
 }
 int main()
 {
-    string str1 = "ABCD";
-    string str2 = "ACDF";
+    string str1 = "ABCDH";
+    string str2 = "ACDFH";
    // cin>>str1>>str2;
     int lcsLength = longestCommonSubsequence(str1, str2);
     cout << "Length of Longest Common Subsequence: " << lcsLength << endl;
