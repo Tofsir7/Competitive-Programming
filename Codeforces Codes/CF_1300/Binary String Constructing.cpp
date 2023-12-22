@@ -75,7 +75,6 @@ int main()
             }
             else
             {
-
                 for(int i=0; i<zero; i++)
                     cout<<0;
                 for(int i=0; i<one; i++)
@@ -90,8 +89,4 @@ int main()
         for(int i=0; i<one; i++)
             cout<<1;
     }
-
-
 }
-
-
