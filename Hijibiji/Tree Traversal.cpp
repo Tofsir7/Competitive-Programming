@@ -49,22 +49,31 @@ void insertNode(int value)
 		}
 	}
 }
-bool BST(int item)
+void preOrder(node *root)
 {
-	node *currentNode=root;
-	while(1)
-	{
-		if(currentNode->number==item)
-		{
-			return true;
-		}
-		else if(currentNode->number<item)
-		currentNode=currentNode->rightChild;
-		else
-		currentNode=currentNode->leftChild;
-		if(currentNode==NULL)
-		return false;
-	}
+	if(root==NULL)
+	return;
+	cout<<root->number<<" ";
+	preOrder(root->leftChild);
+	preOrder(root->rightChild);
+}
+
+void inOrder(node *root)
+{
+	if(root==NULL)
+	return;
+	inOrder(root->leftChild);
+	cout<<root->number<<" ";
+	inOrder(root->rightChild);
+}
+
+void postOrder(node *root)
+{
+	if(root==NULL)
+	return;
+	postOrder(root->leftChild);
+	postOrder(root->rightChild);
+	cout<<root->number<<" ";
 }
 int main()
 {
@@ -79,14 +88,13 @@ int main()
     	cin>>a;
     	insertNode(a);
 	}
-	int item;
-	cin>>item;
-	if(BST(item))
-	{
-		cout<<item<<" is found"<<endl;
-	}
-	else
-	{
-		cout<<item<<" is not found"<<endl;
-	}
+	cout<<"Pre Order Traversing: ";
+	preOrder(root);
+	cout<<endl;
+	cout<<"In Order Traversing: ";
+	inOrder(root);
+	cout<<endl;
+	cout<<"Post Order Traversing: ";
+	postOrder(root);
+	
 }
