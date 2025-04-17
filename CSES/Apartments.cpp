@@ -21,20 +21,24 @@ int main()
 	sort(ar.begin(),ar.end());
 	sort(br.begin(),br.end());
 	
-	int count=0;
-	for(int i=0;i<m;i++)
+	int i=0,j=0,count=0;
+	while(i<n && j<m)
 	{
-		if(upper_bound(ar.begin(),ar.end(),br[i]-k)!=lower_bound(ar.begin(),ar.end(),br[i]+k))
+		if(ar[i]-k<=br[j] && br[j]<=ar[i]+k)
 		{
-		count++;
-		int index=upper_bound(ar.begin(),ar.end(),br[i]-k)-ar.begin();
-		ar[index]=INT_MIN;
-		//cout<<"i= "<<i<<"= "<<<<endl;
+			i++;
+			j++;
+			count++;
+		}
+		else if(ar[i]-k>br[j])
+		{
+			j++;
+		}
+		else if(ar[i]+k<br[j])
+		{
+			i++;
+		}
 	}
-	}
-	
 	cout<<count<<endl;
-//	cout<<upper_bound(ar.begin(),ar.end(),38)-ar.begin()<<endl;
-//	cout<<lower_bound(ar.begin(),ar.end(),42)-ar.begin()<<endl;
 }
 
