@@ -1,40 +1,50 @@
+//Learning- in boolian comparison function returns false for '='
+// So, sorting in ascending order we should use a<b otherwise it may produce RE in some cases
+
 #include <bits/stdc++.h>
 using namespace std;
 #define endl "\n"
+struct structure{
+	int start;
+	int end;
+};
+bool comparison(structure a, structure b)
+{
+	if(a.end<b.end)
+	return true;
+	else
+	return false;
+}
 int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
+
 	int n;
 	cin>>n;
-	vector<int>times(2*n);
-	map<int,int>count;
-	int a,b,j=0;
+	vector<structure>movies(n);
+	
+	int a,b;
 	for(int i=0;i<n;i++)
 	{
 		cin>>a>>b;
-		count[a]++;
-		count[b]--;
-		times[j]=a;
-		j++;
-		times[j]=b;
-		j++;
+		movies[i].start=a;
+		movies[i].end=b;
 	}
-	int max=-2,total=0;
-	sort(times.begin(),times.end());
-//		for(int i=0;i<2*n;i++)
-//	{
-//		cout<<times[i]<<" ";
-//	}
-//	cout<<endl;
-	for(int i=0;i<2*n;i++)
+	int total=1;
+	sort(movies.begin(),movies.end(),comparison);
+	
+	int cmpValue=movies[0].end;
+	for(int i=1;i<n;i++)
 	{
-		total+=count[times[i]];
-		//cout<<"total"<<total<<endl;
-		if(total>=max)
-		max=total;
+	    if(movies[i].start>=cmpValue)
+	    {
+	    	total++;
+	    	cmpValue=movies[i].end;
+		}
 	}
-	cout<<max<<endl;
+	cout<<total<<endl;
+
 }
 
