@@ -1,3 +1,10 @@
+ /*Learning: Maximum subarray sum can be acheived by using kadane's algorithm
+Algorithm-
+step-1: Initialising sum and maxSum is equal to starting number
+step-2: Calculating sum is equal to the maximum of previous sum and current element
+step-3: Calculating maxSum is equal to the maximum of current sum and itself*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 #define endl "\n"
